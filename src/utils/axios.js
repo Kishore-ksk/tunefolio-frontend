@@ -3,13 +3,19 @@ import axios from 'axios';
 // Create Axios instance
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000', // Laravel backend URL
-  withCredentials: true, // Allows sending cookies with requests (for Sanctum auth)
+  withCredentials: true, // ✅ Must be true for Sanctum to send cookies
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
 });
 
+// 👉 CSRF protection: First, hit Sanctum's CSRF cookie endpoint
+API.get('/sanctum/csrf-cookie').catch((error) => {
+  console.error("Failed to get CSRF cookie:", error);
+});
+
+// Add request interceptor
 API.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("authToken");
@@ -17,28 +23,28 @@ API.interceptors.request.use(
       config.headers.Authorization = `Bearer ${token}`;
     }
 
-    const userId = localStorage.getItem("userId"); // Get userId from storage
+    const userId = localStorage.getItem("userId");
     if (userId) {
-      config.headers['User-Id'] = userId; // Attach userId to requests
+      config.headers['User-Id'] = userId;
     }
+
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-// Add response interceptor (Handle expired tokens)
+// Handle 401 unauthorized globally
 API.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Token expired or invalid
       console.warn("Session expired. Logging out...");
       localStorage.removeItem("authToken");
       localStorage.removeItem("userId");
-      window.location.href = "/login"; // Redirect to login page
+      window.location.href = "/login";
     }
     return Promise.reject(error);
   }
 );
-export default API;
 
+export default API;

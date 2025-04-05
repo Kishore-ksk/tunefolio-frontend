@@ -1,10 +1,18 @@
 import API from "../utils/axios"; // Import the existing axios instance
 
 const ApiService = {
-  register: (data) => API.post("/api/register", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  }),
-  login: (data) => API.post("/api/login", data),
+  register: async (data) => {
+    await API.get("/sanctum/csrf-cookie"); // ✅ Set CSRF token cookie first
+    return API.post("/api/register", data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+
+
+  login: async (data) => {
+    await API.get("/sanctum/csrf-cookie"); // ✅ Same here before login
+    return API.post("/api/login", data);
+  },
   getUser: () => API.get("/api/user"),
   deleteUser: () => API.delete("/api/auth/delete"),
 
