@@ -26,8 +26,8 @@ const SignUp = () => {
   // Background images based on user type
   const backgroundImage =
     userType === "Musician"
-      ? "src/assets/musician-bg.jpg" // Replace with actual path
-      : "src/assets/industry-bg.jpg"; // Replace with actual path
+      ? "/assets/musician-bg.jpg" // Replace with actual path
+      : "/assets/industry-bg.jpg"; // Replace with actual path
 
   const onSubmit = async (data) => {
     if (userType === "Industry Professional") {
@@ -131,11 +131,11 @@ const SignUp = () => {
           {/* Social Sign-Up */}
           <div className="flex gap-4 mb-4">
             <button className="flex flex-1 border border-[#303030] justify-center rounded-md text-white cursor-pointer gap-2 items-center px-4 py-2">
-              <img src="src/assets/google.svg" alt="Google" className="h-5 w-5" />
+              <img src="/assets/google.svg" alt="Google" className="h-5 w-5" />
               Google
             </button>
             <button className="flex flex-1 border border-[#303030] justify-center rounded-md text-white cursor-pointer gap-2 items-center px-4 py-2">
-              <img src="src/assets/apple.svg" alt="Apple" className="h-5 w-5" />
+              <img src="/assets/apple.svg" alt="Apple" className="h-5 w-5" />
               Apple
             </button>
           </div>

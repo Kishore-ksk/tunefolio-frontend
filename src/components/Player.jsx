@@ -13,7 +13,7 @@ import { IoIosArrowUp } from "react-icons/io";
 
 
 const STATIC_SONG = {
-  image: "/src/assets/unknownimage.svg",
+  image: "/assets/unknownimage.svg",
   name: "Unknown Song",
 };
 const STATIC_ARTIST = "Unknown Artist";
@@ -104,7 +104,7 @@ function Player() {
         </button>
       </div>
 
- 
+
 
       {/* Arrow Button for Small Screens */}
       <button
@@ -115,10 +115,9 @@ function Player() {
       </button>
 
       {/* Icon Section (Hidden on Small Screens, Shown when Arrow is Clicked) */}
- <div
-        className={`absolute bottom-full  right-0 bg-black p-4 rounded-lg shadow-lg flex gap-6 items-center justify-center lg:hidden ${
-          showIcons ? "flex" : "hidden"
-        }`}
+      <div
+        className={`absolute bottom-full  right-0 bg-black p-4 rounded-lg shadow-lg flex gap-6 items-center justify-center lg:hidden ${showIcons ? "flex" : "hidden"
+          }`}
       >
         <button className="text-[#70CCE2] text-2xl cursor-pointer hover:scale-105 transition-all">
           <PiSpeakerSimpleHighFill />

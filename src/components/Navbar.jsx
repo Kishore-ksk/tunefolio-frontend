@@ -18,12 +18,12 @@ const Navbar = () => {
   const notificationsRef = useRef(null);
 
   const menuItems = [
-    { name: "Dashboard", path: "home", icon: "/src/assets/dashboard.svg" },
-    { name: "Portfolio", path: "portfolio", icon: "/src/assets/port.svg" },
-    { name: "Opportunities", path: "opportunities", icon: "/src/assets/oppor.svg" },
-    { name: "Messages", path: "messages", icon: "/src/assets/message.svg" },
-    { name: "Profile", path: "profile", icon: "/src/assets/profile.svg" },
-    { name: "Settings", path: "settings", icon: "/src/assets/settings.svg" },
+    { name: "Dashboard", path: "home", icon: "/assets/dashboard.svg" },
+    { name: "Portfolio", path: "portfolio", icon: "/assets/port.svg" },
+    { name: "Opportunities", path: "opportunities", icon: "/assets/oppor.svg" },
+    { name: "Messages", path: "messages", icon: "/assets/message.svg" },
+    { name: "Profile", path: "profile", icon: "/assets/profile.svg" },
+    { name: "Settings", path: "settings", icon: "/assets/settings.svg" },
   ];
 
   useEffect(() => {
@@ -111,7 +111,7 @@ const Navbar = () => {
       <div className='flex gap-4 items-center'>
         {/* Logo Section */}
         <div onClick={() => navigate(`/`)} className="flex h-[10%] justify-center w-full gap-3 items-center lg:justify-around md:hidden">
-          <img src="/src/assets/tunefolio.svg" title="Tunefolio-Logo" alt="Tunefolio Logo"
+          <img src="/assets/tunefolio.svg" title="Tunefolio-Logo" alt="Tunefolio Logo"
             className="w-10 cursor-pointer lg:w-[3vw]" />
           <p className="text-[1.5vw] cursor-pointer font-bold hidden lg:block tracking-[3px]">TuneFolio</p>
         </div>
@@ -121,11 +121,11 @@ const Navbar = () => {
         <button onClick={() => navigate(`/dashboard/uploads`)} className='bg-[#70CCE2] rounded-[10px] text-black cursor-pointer font-semibold hidden hover:bg-[#5BB8CF] md:block md:px-6 md:py-3 px-3 py-2'>Upload</button>
         <div className='block md:hidden'>
           <button className='cursor-pointer'>
-            <img src="/src/assets/search.svg" alt="" className='' />
+            <img src="/assets/search.svg" alt="" className='' />
           </button>
         </div>
         <div ref={notificationsRef}>
-          <button onClick={() => setNotificationsOpen(!notificationsOpen)} className='rounded-[10px] cursor-pointer md:bg-[#232B2D] md:border-[#585E5F] md:border-[1.5px] md:p-2 md:w-13 relative'><img src="/src/assets/bell.svg" alt="" className='w-8' />
+          <button onClick={() => setNotificationsOpen(!notificationsOpen)} className='rounded-[10px] cursor-pointer md:bg-[#232B2D] md:border-[#585E5F] md:border-[1.5px] md:p-2 md:w-13 relative'><img src="/assets/bell.svg" alt="" className='w-8' />
             <span className="flex -mr-1 -mt-1 absolute right-0 size-3 top-0">
               <span className="bg-[#70CCE2] h-full rounded-full w-full absolute animate-ping inline-flex opacity-75"></span>
               <span className="bg-[#70CCE2] rounded-full inline-flex relative size-3"></span>
@@ -180,8 +180,8 @@ const Navbar = () => {
         <div className='md:w-20 relative' ref={dropdownRef}>
           <button onClick={() => setDropdownOpen(!dropdownOpen)} className='bg-[#232B2D] border-[#585E5F] border-[1.5px] rounded-full cursor-pointer md:p-2 md:rounded-[10px]'>
             <div className='flex gap-2'>
-              <img src={profileImage || "/src/assets/material-symbols-light--account-circle.svg"} alt="image" className='h-8 rounded-full w-8' />
-              <img src="/src/assets/down-arrow.svg" alt="" className='w-6 hidden md:block' />
+              <img src={profileImage || "/assets/material-symbols-light--account-circle.svg"} alt="image" className='h-8 rounded-full w-8' />
+              <img src="/assets/down-arrow.svg" alt="" className='w-6 hidden md:block' />
             </div>
           </button>
 
@@ -214,7 +214,7 @@ const Navbar = () => {
         <div className='flex justify-center md:ps-5 md:w-[25%]'>
           <div className='flex w-full items-center relative'>
             <button className='cursor-pointer'>
-              <img src="/src/assets/search.svg" alt="" className='-translate-y-1/2 absolute left-4 top-1/2 transform' />
+              <img src="/assets/search.svg" alt="" className='-translate-y-1/2 absolute left-4 top-1/2 transform' />
             </button>
             <input type="text" placeholder='Search...' className='bg-[#232B2D] border-[#585E5F] border-[1.5px] p-3 rounded-[10px] w-full focus:outline-none hidden md:block pl-12 pr-4' />
           </div>
@@ -253,18 +253,18 @@ const Navbar = () => {
                 onClick={() => { localStorage.removeItem("authToken"); window.location.href = "/login"; }}
                 className="flex justify-center rounded text-white cursor-pointer gap-2 items-center lg:justify-start mt-3 px-3"
               >
-                <img src="/src/assets/logout.svg" alt="Logout" className="sm:w-8 w-6" />
+                <img src="/assets/logout.svg" alt="Logout" className="sm:w-8 w-6" />
                 <p className="sm:text-xl">LogOut</p>
               </button>
 
-              <div className="section flex bg-[url( bg-center bg-cover h-[80px] justify-center m-4 rounded-xl w-[80px] items-center sm:hidden mt-10" style={{ backgroundImage: "url('/src/assets/proframe.svg')" }}>
-                <img onClick={() => navigate(`/dashboard/pricing`)} src="/src/assets/pro.svg" alt="Pro" className="w-8" />
+              <div className="section flex bg-[url( bg-center bg-cover h-[80px] justify-center m-4 rounded-xl w-[80px] items-center sm:hidden mt-10" style={{ backgroundImage: "url('/assets/proframe.svg')" }}>
+                <img onClick={() => navigate(`/dashboard/pricing`)} src="/assets/pro.svg" alt="Pro" className="w-8" />
               </div>
 
-              <div className="sm:flex hidden bg-[url( bg-center bg-cover justify-center m-4 p-6 rounded-[10px] w-full 2xl:w-[85%] items-center mt-6" style={{ backgroundImage: "url('/src/assets/proframe.svg')" }}>
+              <div className="sm:flex hidden bg-[url( bg-center bg-cover justify-center m-4 p-6 rounded-[10px] w-full 2xl:w-[85%] items-center mt-6" style={{ backgroundImage: "url('/assets/proframe.svg')" }}>
                 <div className="flex flex-col text-white gap-4">
                   <p className="flex flex-row text-3xl font-semibold gap-4 items-center">
-                    Go Pro <img src="/src/assets/pro.svg" alt="Pro" className="w-8" />
+                    Go Pro <img src="/assets/pro.svg" alt="Pro" className="w-8" />
                   </p>
                   <p className="">Unlock insights and exclusive features</p>
                   <button onClick={() => navigate(`/dashboard/pricing`)} className="bg-[#0E6E84] border-[#4892A3] border-[1px] rounded-[10px] cursor-pointer px-6 py-2">
