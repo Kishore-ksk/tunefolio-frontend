@@ -3,7 +3,7 @@ import axios from 'axios';
 // Create Axios instance
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000', // Laravel backend URL
-  withCredentials: false, // Allows sending cookies with requests (for Sanctum auth)
+  withCredentials: true, // Allows sending cookies with requests (for Sanctum auth)
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
