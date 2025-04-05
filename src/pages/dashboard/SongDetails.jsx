@@ -224,7 +224,7 @@ function SongDetails() {
                 className="p-2 duration-300 hover:bg-[#adcfd8] hover:text-black mt-2 transition-all"
               >
                 <div className="grid grid-cols-5 justify-between items-center">
-                  <div className="col-span-2 flex h-[20] w-[20] gap-4 items-center">
+                  <div className="col-span-2 flex h-20 w-20 gap-4 items-center">
                     <img src={song.image} alt="" className="h-[40px] w-[40px] cursor-pointer" />
                     <div className="cursor-pointer" onClick={() => navigate(`/dashboard/song/${song.id}`)}>
                       {song.name}
