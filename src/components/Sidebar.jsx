@@ -5,12 +5,12 @@ function Sidebar() {
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
   const menuItems = [
-    { name: "Dashboard", path: "home", icon: "/src/assets/dashboard.svg" },
-    { name: "Portfolio", path: "portfolio", icon: "/src/assets/port.svg" },
-    { name: "Opportunities", path: "opportunities", icon: "/src/assets/oppor.svg" },
-    { name: "Messages", path: "messages", icon: "/src/assets/message.svg" },
-    { name: "Profile", path: "profile", icon: "/src/assets/profile.svg" },
-    { name: "Settings", path: "settings", icon: "/src/assets/settings.svg" },
+    { name: "Dashboard", path: "home", icon: "/assets/dashboard.svg" },
+    { name: "Portfolio", path: "portfolio", icon: "/assets/port.svg" },
+    { name: "Opportunities", path: "opportunities", icon: "/assets/oppor.svg" },
+    { name: "Messages", path: "messages", icon: "/assets/message.svg" },
+    { name: "Profile", path: "profile", icon: "/assets/profile.svg" },
+    { name: "Settings", path: "settings", icon: "/assets/settings.svg" },
   ];
 
   return (
@@ -20,7 +20,7 @@ function Sidebar() {
                       md:w-[120px] lg:w-[200px] 2xl:w-[280px] xl:w-[240px] hidden md:flex flex-col items-center">
         {/* Logo Section */}
         <div onClick={() => navigate(`/`)} className="flex h-[10%] justify-center w-full gap-3 items-center lg:justify-around">
-          <img src="/src/assets/tunefolio.svg" title="Tunefolio-Logo" alt="Tunefolio Logo"
+          <img src="/assets/tunefolio.svg" title="Tunefolio-Logo" alt="Tunefolio Logo"
             className="w-10 cursor-pointer lg:w-[3vw]" />
           <p className="text-[1.5vw] cursor-pointer font-bold hidden lg:block tracking-[3px]">TuneFolio</p>
         </div>
@@ -50,18 +50,18 @@ function Sidebar() {
           onClick={() => { localStorage.removeItem("authToken"); window.location.href = "/login"; }}
           className="flex justify-center rounded text-white cursor-pointer gap-2 items-center lg:justify-start mt-5 px-3"
         >
-          <img src="/src/assets/logout.svg" alt="Logout" className="w-8" />
+          <img src="/assets/logout.svg" alt="Logout" className="w-8" />
           <p className="text-xl hidden lg:block">LogOut</p>
         </button>
 
         {/* Pro Upgrade Section */}
-        <div className="flex bg-[url( bg-center bg-cover h-[80px] justify-center m-4 rounded-xl w-[80px] items-center lg:hidden mt-10" style={{ backgroundImage: "url('/src/assets/proframe.svg')" }}>
-          <img onClick={() => navigate(`/dashboard/pricing`)} src="/src/assets/pro.svg" alt="Pro" className="w-8" />
+        <div className="flex bg-[url( bg-center bg-cover h-[80px] justify-center m-4 rounded-xl w-[80px] items-center lg:hidden mt-10" style={{ backgroundImage: "url('/assets/proframe.svg')" }}>
+          <img onClick={() => navigate(`/dashboard/pricing`)} src="/assets/pro.svg" alt="Pro" className="w-8" />
         </div>
-        <div className="bg-[url( bg-center bg-cover justify-center m-4 p-6 rounded-[10px] w-full 2xl:w-[85%] hidden items-center lg:flex mt-10" style={{ backgroundImage: "url('/src/assets/proframe.svg')" }}>
+        <div className="bg-[url( bg-center bg-cover justify-center m-4 p-6 rounded-[10px] w-full 2xl:w-[85%] hidden items-center lg:flex mt-10" style={{ backgroundImage: "url('/assets/proframe.svg')" }}>
           <div className="flex flex-col text-white gap-4">
             <p className="flex flex-row 2xl:text-3xl font-semibold gap-4 items-center lg:text-xl">
-              Go Pro <img src="/src/assets/pro.svg" alt="Pro" className="w-8" />
+              Go Pro <img src="/assets/pro.svg" alt="Pro" className="w-8" />
             </p>
             <p className="text-xs xl:text-[16px]">Unlock insights and exclusive features</p>
             <button onClick={() => navigate(`/dashboard/pricing`)} className="bg-[#0E6E84] border-[#4892A3] border-[1px] rounded-[10px] text-sm 2xl:px-6 cursor-pointer px-1 py-2">

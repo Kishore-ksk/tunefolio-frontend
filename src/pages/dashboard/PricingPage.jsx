@@ -14,12 +14,12 @@ function Sidebar() {
   const [openFAQ, setOpenFAQ] = useState(null); // Track which FAQ is open
 
   const menuItems = [
-    { name: "Dashboard", path: "home", icon: "/src/assets/dashboard.svg" },
-    { name: "Portfolio", path: "portfolio", icon: "/src/assets/port.svg" },
-    { name: "Opportunities", path: "opportunities", icon: "/src/assets/oppor.svg" },
-    { name: "Messages", path: "messages", icon: "/src/assets/message.svg" },
-    { name: "Profile", path: "profile", icon: "/src/assets/profile.svg" },
-    { name: "Settings", path: "settings", icon: "/src/assets/settings.svg" },
+    { name: "Dashboard", path: "home", icon: "/assets/dashboard.svg" },
+    { name: "Portfolio", path: "portfolio", icon: "/assets/port.svg" },
+    { name: "Opportunities", path: "opportunities", icon: "/assets/oppor.svg" },
+    { name: "Messages", path: "messages", icon: "/assets/message.svg" },
+    { name: "Profile", path: "profile", icon: "/assets/profile.svg" },
+    { name: "Settings", path: "settings", icon: "/assets/settings.svg" },
   ];
 
   const pricingPlans = [

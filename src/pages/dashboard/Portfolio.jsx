@@ -62,7 +62,7 @@ const Portfolio = () => {
     <div className='p-5 pb-24'>
 
       {/* thumbnail */}
-      <div className="flex flex-col bg-[url( bg-center bg-cover bg-no-repeat rounded-[10px] w-full gap-2 items-center py-8 relative" style={{ backgroundImage: "url('/src/assets/port-thumb.svg')" }}>
+      <div className="flex flex-col bg-[url( bg-center bg-cover bg-no-repeat rounded-[10px] w-full gap-2 items-center py-8 relative" style={{ backgroundImage: "url('/assets/port-thumb.svg')" }}>
 
         <h2 className='sm:text-xl font-bold'>Artist Showcase</h2>
         <p className='text-center sm:text-lg'>Showcase your best tracks, albums, and collaborations in one place</p>
@@ -79,7 +79,7 @@ const Portfolio = () => {
         {/* Your Music, Your Story */}
         <div className="flex bg-[#70CCE2] p-4 rounded-2xl text-black gap-4 items-center lg:col-span-1">
           <div className="flex bg-[#172022] justify-center p-4 rounded-[10px] items-center">
-            <img src="/src/assets/disc.svg" alt="" className='2xl:w-20 lg:w-20' />
+            <img src="/assets/disc.svg" alt="" className='2xl:w-20 lg:w-20' />
           </div>
           <div>
             <h3 className="text-lg 2xl:text-xl font-bold">Your music, Your story</h3>
