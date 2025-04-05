@@ -186,7 +186,7 @@ function SongDetails() {
       <div className="p-10">
         <div className="flex gap-6">
           <div className="h-[80] w-[80]">
-            <img src={album.image} alt={album.name} className="bg-center bg-cover h-80 rounded-[10px] w-80" />
+            <img src={album.image} alt={album.name} className="bg-center bg-cover h-full w-full object-cover rounded-[10px]" />
           </div>
 
           <div className="flex flex-col justify-around w-[70%]">
