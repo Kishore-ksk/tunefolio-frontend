@@ -130,27 +130,27 @@ const UploadPage = () => {
 
   return (
     <div className="flex flex-col bg-[#0D0D0D] h-full p-5 text-white items-center pb-24">
-      <h1 className="text-3xl font-bold mb-2">Showcase Your Music to the World!</h1>
-      <h1 className="text-md mb-8">Upload your albums and songs effortlessly. Share your music, grow your audience, and take your talent to the next level!</h1>
+      <h1 className="text-lg text-center md:text-3xl font-bold mb-2">Showcase Your Music to the World!</h1>
+      <h1 className="text-center text-xs md:text-md mb-8">Upload your albums and songs effortlessly. Share your music, grow your audience, and take your talent to the next level!</h1>
 
-      <div className="flex gap-4 mb-6">
+      <div className="flex gap-4 mb-3 md:mb-6">
         <button
-          className={`px-4 py-2 rounded-md font-semibold ${uploadType === "album" ? "bg-[#70CCE2] hover:bg-[#5BB8CF]  text-black" : "bg-[#191919]"}`}
+          className={`px-2 md:px-4 py-2 text-xs md:text-base rounded-md font-semibold ${uploadType === "album" ? "bg-[#70CCE2] hover:bg-[#5BB8CF]  text-black" : "bg-[#191919]"}`}
           onClick={() => setUploadType("album")}
         >
           Upload Album
         </button>
         <button
-          className={`px-4 py-2 rounded-md font-semibold ${uploadType === "song" ? "bg-[#70CCE2] hover:bg-[#5BB8CF] text-black" : "bg-[#191919]"}`}
+          className={`px-2 md:px-4 py-2 text-xs md:text-base rounded-md font-semibold ${uploadType === "song" ? "bg-[#70CCE2] hover:bg-[#5BB8CF] text-black" : "bg-[#191919]"}`}
           onClick={() => setUploadType("song")}
         >
           Upload Song
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col h-[67%] justify-center p-12 rounded-lg shadow-lg w-full items-center overflow-hidden">
-        <div className="flex h-full justify-between w-full gap-6">
-          <div className="h-full rounded-md w-[60%] overflow-hidden">
+      <form onSubmit={handleSubmit} className="flex flex-col justify-center p-2 md:p-12 rounded-lg shadow-lg w-full items-center overflow-hidden">
+        <div className="flex flex-col md:flex-row h-full justify-between w-full gap-6 overflow-auto">
+          <div className="h-full rounded-md w-full md:w-[60%] md:overflow-hidden">
             <label className="block mb-3">
               <input
                 type="file"
@@ -162,7 +162,7 @@ const UploadPage = () => {
               />
             </label>
 
-            {previewImage && <img src={previewImage} alt="Preview" className="h-full rounded-md w-full mb-3 object-cover" />}
+            {previewImage && <img src={previewImage} alt="Preview" className="h-60 md:h-80 rounded-md w-full mb-3 object-cover object-center" />}
           </div>
           <div className="flex flex-col w-full">
             <label className="block mb-3">

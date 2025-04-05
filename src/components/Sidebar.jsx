@@ -17,9 +17,9 @@ function Sidebar() {
     <>
       {/* Sidebar for large and medium screens */}
       <div className="bg-[#172022] text-white h-screen px-5 border-r-[1.5px] border-[#2E3638] 
-                      md:w-[120px] lg:w-[200px] 2xl:w-[280px] xl:w-[240px] hidden md:flex flex-col items-center">
+                      md:w-[120px] lg:w-[200px] 2xl:w-[280px] xl:w-[240px] hidden md:flex flex-col items-center pb-24 pt-4">
         {/* Logo Section */}
-        <div onClick={() => navigate(`/`)} className="flex h-[10%] justify-center w-full gap-3 items-center lg:justify-around">
+        <div onClick={() => navigate(`/`)} className="flex h-[10%] justify-center w-full gap-2 items-center lg:justify-around">
           <img src="/assets/tunefolio.svg" title="Tunefolio-Logo" alt="Tunefolio Logo"
             className="w-10 cursor-pointer lg:w-[3vw]" />
           <p className="text-[1.5vw] cursor-pointer font-bold hidden lg:block tracking-[3px]">TuneFolio</p>
@@ -48,7 +48,7 @@ function Sidebar() {
         {/* Logout Button */}
         <button
           onClick={() => { localStorage.removeItem("authToken"); window.location.href = "/login"; }}
-          className="flex justify-center rounded text-white cursor-pointer gap-2 items-center lg:justify-start mt-5 px-3"
+          className="flex justify-center rounded text-white cursor-pointer gap-2 items-center lg:justify-start mt-3 px-3"
         >
           <img src="/assets/logout.svg" alt="Logout" className="w-8" />
           <p className="text-xl hidden lg:block">LogOut</p>
@@ -58,7 +58,7 @@ function Sidebar() {
         <div className="flex bg-[url( bg-center bg-cover h-[80px] justify-center m-4 rounded-xl w-[80px] items-center lg:hidden mt-10" style={{ backgroundImage: "url('/assets/proframe.svg')" }}>
           <img onClick={() => navigate(`/dashboard/pricing`)} src="/assets/pro.svg" alt="Pro" className="w-8" />
         </div>
-        <div className="bg-[url( bg-center bg-cover justify-center m-4 p-6 rounded-[10px] w-full 2xl:w-[85%] hidden items-center lg:flex mt-10" style={{ backgroundImage: "url('/assets/proframe.svg')" }}>
+        <div className="bg-[url( bg-center bg-cover justify-center m-4 p-4 rounded-[10px] w-full 2xl:w-[85%] hidden items-center lg:flex mt-5" style={{ backgroundImage: "url('/assets/proframe.svg')" }}>
           <div className="flex flex-col text-white gap-4">
             <p className="flex flex-row 2xl:text-3xl font-semibold gap-4 items-center lg:text-xl">
               Go Pro <img src="/assets/pro.svg" alt="Pro" className="w-8" />
