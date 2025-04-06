@@ -52,7 +52,7 @@ const Login = () => {
       <div className="bg-[#121212] p-8 rounded-lg shadow-lg w-[400px]">
         {/* Brand Logo*/}
         <div className="flex justify-center mb-4">
-          <img src="src/assets/tunefolio.svg" alt="Tunefolio Logo" className="text-center text-white" />
+          <img src="/assets/tunefolio.svg" alt="Tunefolio Logo" className="text-center text-white" />
         </div>
 
         {/* Title */}
