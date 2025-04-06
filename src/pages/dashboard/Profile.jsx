@@ -51,7 +51,7 @@ function Profile() {
     <div className="flex flex-col lg:h-screen justify-between p-8 text-white w-full items-center lg:flex-row lg:items-stretch pb-24 ">
       {user && (
         <div className="flex flex-col bg-[#191919] border-[#303030] border-[1px] lg:justify-between p-8 rounded-xl gap-8 lg:gap-11 lg:w-[35%] mb-20  lg:h-[604px] h-[500px]">
-          <img src={profile.image} alt="Profile" className="border-[1px] border-gray-500 h-[80%] lg:h-[50%] rounded-2xl w-full drop-shadow-lg object-center object-cover" />
+          <img src={profile.image} alt="Profile" className="border-[1px] border-gray-500 h-[120px] lg:h-[50%] rounded-2xl w-full drop-shadow-lg object-center object-cover" />
           <div className="flex flex-col gap-2 items-center">
             <h2 className="text-lg lg:text-2xl font-bold">{user.name}</h2>
             <p className="text-sm lg:text-base text-[#878787]">Musician</p>
