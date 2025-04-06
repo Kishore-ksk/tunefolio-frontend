@@ -257,7 +257,7 @@ function SongDetails() {
     {/* Delete Confirmation Modal */}
     {
       isDeleteModalOpen && (
-        <div className="flex bg-opacity-50 justify-center fixed inset-100 items-center">
+        <div className="flex bg-opacity-50 justify-center fixed inset-0 items-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -265,7 +265,7 @@ function SongDetails() {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="p-6 rounded-lg text-center text-white"
           >
-            <div className="bg-[#e4e4e4] p-6 rounded-lg shadow-lg text-black text-center w-96 animate-scale-up scale-95 transform">
+            <div className="bg-[#e4e4e4] p-6 rounded-lg shadow-lg text-black text-center md:w-96 animate-scale-up scale-95 transform">
               <h2 className="text-xl font-semibold">Confirm Deletion</h2>
               <p className="mt-2">Are you sure you want to delete this {deleteTarget?.type}?</p>
               <div className="flex justify-between mt-6">
