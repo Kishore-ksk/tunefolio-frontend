@@ -73,48 +73,48 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex bg-[#0D0D0D] h-screen p-24">
+    <div className="flex flex-col items-center justify-between lg:flex-row bg-[#0D0D0D] lg:h-screen lg:p-24 pb-24">
       {/* Left Section */}
-      <div className="flex flex-col bg-center bg-cover justify-center p-10 rounded-[10px] w-1/2 overflow-hidden relative" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="flex flex-col bg-center bg-cover justify-center p-4 lg:p-10 lg:rounded-[10px] w-full lg:w-1/2 overflow-hidden relative" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="bg-black/60 absolute inset-0"></div>
         <div className="flex flex-col h-full justify-between items-center z-10">
-          <div className="flex flex-col justify-center text-center items-center px-8">
-            <h2 className="text-5xl text-white font-bold">
+          <div className="flex flex-col justify-center text-center items-center lg:px-8">
+            <h2 className="text-lg lg:text-5xl text-white font-bold">
               Get started with <span className="text-[#70CCE2]">TuneFolio</span>
             </h2>
-            <p className="text-2xl text-white mt-2">
+            <p className="text-xs lg:text-2xl text-white mt-2">
               Join a thriving music community, showcase, connect, and grow your career.
             </p>
           </div>
 
 
           {/* Toggle User Type */}
-          <div className="flex flex-col h-[30%] w-[90%]">
+          <div className="flex flex-col lg:h-[30%] w-full lg:w-[90%]">
             <div className="flex bg-white/30 p-1 rounded-full w-full mt-6" style={{ backdropFilter: 'blur(10px)' }}>
               <button
-                className={`flex-1 py-2 rounded-full font-semibold text-xl transition-all duration-300 ease-in-out ${userType === "Musician" ? "bg-white text-black" : "text-white"}`}
+                className={`flex-1 py-2 rounded-full font-semibold text-xs lg:text-xl transition-all duration-300 ease-in-out ${userType === "Musician" ? "bg-white text-black" : "text-white"}`}
                 onClick={() => setUserType("Musician")}
               >
                 Musician
               </button>
               <button
-                className={`flex-1 py-2 rounded-full font-semibold text-xl transition-all duration-300 ease-in-out ${userType === "Industry Professional" ? "bg-white text-black" : "text-white"}`}
+                className={`flex-1 py-2 rounded-full font-semibold text-xs lg:text-xl transition-all duration-300 ease-in-out ${userType === "Industry Professional" ? "bg-white text-black" : "text-white"}`}
                 onClick={() => setUserType("Industry Professional")}
               >
                 Industry Professionals
               </button>
             </div>
             {userType === "Industry Professional" && (
-              <p className="text-center text-md text-red-500 mt-2">Industry Professionals page is under maintenance.</p>
+              <p className="text-center text-[10px] lg:text-md text-red-500 lg:mt-2">Industry Professionals page is under maintenance.</p>
             )}
           </div>
 
 
           <div className="text-center">
-            <h3 className="text-2xl text-white font-bold">
+            <h3 className="mt-2 lg:mt-0 lg:text-2xl text-white font-bold">
               Showcase Your Sound to the World
             </h3>
-            <p className="text-gray-300">
+            <p className="text-xs lg:text-base text-gray-300">
               Upload your tracks, build your portfolio, and connect with industry professionals.
             </p>
           </div>
@@ -124,7 +124,7 @@ const SignUp = () => {
       </div>
 
       {/* Right Section */}
-      <div className="flex bg-[#0D0D0D] justify-center w-1/2 items-center">
+      <div className="flex bg-[#0D0D0D] justify-center w-full md:w-1/2 items-center">
         <div className="bg-[#121212] p-8 rounded-lg shadow-lg w-[400px]">
           <h2 className="text-2xl text-center text-white font-semibold mb-6">Sign Up</h2>
 
