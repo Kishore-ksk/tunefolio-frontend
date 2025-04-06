@@ -107,7 +107,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='flex bg-[#172022] border-[#2E3638] border-b-[1.5px] h-[10%] justify-around w-full items-center px-5 sticky top-0 z-50'>
+    <div className='flex bg-[#172022] border-[#2E3638] border-b-[1.5px] h-[10%] justify-around w-full items-center px-3 lg:px-5 sticky top-0 z-50'>
       <div className='flex gap-4 items-center'>
         {/* Logo Section */}
         <div onClick={() => navigate(`/`)} className="flex h-[10%] justify-center w-full gap-3 items-center lg:justify-around md:hidden">
@@ -210,7 +210,7 @@ const Navbar = () => {
           )}
 
         </div>
-        <button onClick={() => navigate(`/dashboard/uploads`)} className='rounded-[10px] text-white block cursor-pointer font-semibold md:hidden md:px-6 md:py-3 px-3 py-2'>Upload</button>
+        <button onClick={() => navigate(`/dashboard/uploads`)} className='rounded-[10px] text-white block cursor-pointer font-semibold md:hidden md:px-6 md:py-3 px-1 lg:px-3 py-2'>Upload</button>
         <div className='flex justify-center md:ps-5 md:w-[25%]'>
           <div className='flex w-full items-center relative'>
             <button className='cursor-pointer'>

@@ -185,8 +185,8 @@ function SongDetails() {
     content = (
       <div className="px-4 py-5 sm:p-10">
         <div className="flex flex-col sm:flex-row items-center sm:items-stretch gap-6">
-          <div className="h-50 sm:h-80 w-full sm:w-80">
-            <img src={album.image} alt={album.name} className="bg-center border-[#2E3638] border-[0.5px] bg-cover sm:h-80 rounded-[10px] sm:w-80 w-full h-50" />
+          <div className="h-60 sm:h-80 w-full sm:w-80">
+            <img src={album.image} alt={album.name} className="bg-center border-[#2E3638] border-[0.5px] bg-cover sm:h-80 rounded-[10px] sm:w-80 w-full h-60" />
           </div>
 
           <div className="flex flex-col justify-around w-full md:w-[70%]">

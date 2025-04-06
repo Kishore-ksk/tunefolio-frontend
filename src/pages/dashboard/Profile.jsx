@@ -48,17 +48,17 @@ function Profile() {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen justify-between p-8 text-white w-full items-center lg:flex-row lg:items-stretch lg:pb-24 pb-5">
+    <div className="flex flex-col lg:h-screen justify-between p-8 text-white w-full items-center lg:flex-row lg:items-stretch pb-24 ">
       {user && (
-        <div className="flex flex-col bg-[#191919] border-[#303030] border-[1px] justify-between p-8 rounded-xl gap-11 lg:w-[35%] mb-20">
-          <img src={profile.image} alt="Profile" className="border-[1px] border-gray-500 h-[50%] rounded-2xl w-full drop-shadow-lg object-center object-cover" />
+        <div className="flex flex-col bg-[#191919] border-[#303030] border-[1px] lg:justify-between p-8 rounded-xl gap-8 lg:gap-11 lg:w-[35%] mb-20  lg:h-[604px] h-[500px]">
+          <img src={profile.image} alt="Profile" className="border-[1px] border-gray-500 h-[80%] lg:h-[50%] rounded-2xl w-full drop-shadow-lg object-center object-cover" />
           <div className="flex flex-col gap-2 items-center">
-            <h2 className="text-2xl font-bold">{user.name}</h2>
-            <p className="text-[#878787]">Musician</p>
+            <h2 className="text-lg lg:text-2xl font-bold">{user.name}</h2>
+            <p className="text-sm lg:text-base text-[#878787]">Musician</p>
           </div>
           <div className="flex justify-center gap-9">
-            <p className="flex flex-col bg-[#172022] p-4 rounded-2xl shadow-lg items-center"><span className="text-[#70CCE2] text-5xl">{albums.length}</span> {albums?.length >= 2 ? "albums" : "album"}</p>
-            <p className="flex flex-col bg-[#172022] p-4 rounded-2xl items-center"><span className="text-[#70CCE2] text-5xl">{songs.length}</span>{songs?.length >= 2 ? "songs" : "song"}</p>
+            <p className="flex flex-col bg-[#172022] p-4 rounded-2xl shadow-lg items-center"><span className="text-[#70CCE2] text-2xl lg:text-5xl">{albums.length}</span> {albums?.length >= 2 ? "albums" : "album"}</p>
+            <p className="flex flex-col bg-[#172022] p-4 rounded-2xl items-center"><span className="text-[#70CCE2] text-2xl lg:text-5xl">{songs.length}</span>{songs?.length >= 2 ? "songs" : "song"}</p>
           </div>
           <div className="flex flex-col justify-between items-center md:flex-row">
             <p className="text-[#878787]">Total Plays: {profile.totalPlays.toLocaleString()}</p>
@@ -68,12 +68,12 @@ function Profile() {
         </div>
       )}
       <div className="flex flex-col gap-10 lg:w-[60%]">
-        <div className="flex flex-col bg-[#191919] h-[20%] p-4 rounded-xl gap-3 lg:h-[42%]">
+        <div className="flex flex-col bg-[#191919] p-4 rounded-xl gap-3 h-[42%]">
           <h3 className="text-lg font-semibold">Albums</h3>
           <div className="grid grid-cols-2 h-full p-4 gap-4 lg:grid-cols-3 overflow-auto xl:grid-cols-4">
             {albums.map((album) => (
               <div onClick={() => navigate(`/dashboard/album/${album.id}`)} key={album.id} className="bg-[#172022] p-3 rounded-lg album-card cursor-pointer duration-300 ease-in-out hover:bg-[#243033] transition-colors">
-                <img src={album.image || "default-album.jpg"} alt={album.name} className="h-32 rounded-md w-full object-cover" />
+                <img src={album.image || "default-album.jpg"} alt={album.name} className="h-20 lg:h-32 rounded-md w-full object-cover" />
                 <p className="text-center mt-2">{album.name}</p>
               </div>
             ))}

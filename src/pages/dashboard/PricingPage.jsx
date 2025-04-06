@@ -102,7 +102,7 @@ function Sidebar() {
       </div>
 
       {/* Compare Plans Section */}
-      <div className="mt-10">
+      <div className="flex flex-col items-center mt-10">
         <h3 className="text-2xl text-center font-bold mb-4">Compare Plans</h3>
         <table className="border-[#303030] border-2 border-collapse w-full">
           <thead>
