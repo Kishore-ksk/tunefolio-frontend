@@ -262,7 +262,7 @@ function Home() {
             <div className="relative w-full h-full">
               {/* Background Image */}
               <img
-                src="\public\assets\banner01.jpg"
+                src="\assets\banner01.jpg"
                 alt="banner-3"
                 className="w-full h-full object-cover"
               />
@@ -297,7 +297,7 @@ function Home() {
             <div className="relative w-full h-full">
               {/* Background Image */}
               <img
-                src="\public\assets\banner1.jpg"
+                src="\assets\banner1.jpg"
                 alt="banner-3"
                 className="w-full h-full object-cover"
               />
@@ -332,7 +332,7 @@ function Home() {
             <div className="relative w-full h-full">
               {/* Background Image */}
               <img
-                src="\public\assets\banner2.jpg"
+                src="\assets\banner2.jpg"
                 alt="banner-3"
                 className="w-full h-full object-cover"
               />
@@ -368,7 +368,7 @@ function Home() {
             <div className="relative w-full h-full">
               {/* Background Image */}
               <img
-                src="\public\assets\banner3.jpg"
+                src="\assets\banner3.jpg"
                 alt="banner-3"
                 className="w-full h-full object-cover"
               />
