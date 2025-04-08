@@ -14,6 +14,8 @@ const ApiService = {
     return API.post("/login", data);
   },
   getUser: () => API.get("/user"),
+  getAllUsers: () => API.get("/users"),
+
   deleteUser: () => API.delete("/auth/delete"),
 
   getAlbums: () => API.get("/albums"),

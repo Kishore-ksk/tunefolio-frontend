@@ -9,7 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '../style.css';
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Typewriter } from 'react-simple-typewriter'
 import MagneticButton from "../components/MagneticButton";
 import { RiInstagramFill } from "react-icons/ri";
@@ -17,16 +17,12 @@ import { RiLinkedinBoxFill } from "react-icons/ri";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaGuitar } from "react-icons/fa";
-
 import { RiUserSharedLine } from "react-icons/ri";
-
 import { FaHeart } from "react-icons/fa";
-
 import { HiRocketLaunch } from "react-icons/hi2";
-
 import { BiBarChartAlt2 } from "react-icons/bi";
-
 import { GiBrain } from "react-icons/gi";
+import { IoLogoGooglePlaystore, IoLogoAppleAppstore } from "react-icons/io5";
 
 
 import SplitHeading from "../components/SplitHeading";
@@ -166,8 +162,35 @@ function Home() {
   const handleFlip = (index) => {
     setFlippedIndex((prev) => (prev === index ? null : index));
   };
+
+  const howItWorksSteps = [
+    {
+      title: "Create Your Profile",
+      desc: "Sign up and build your musical identity—artist, pro, or fan.",
+    },
+    {
+      title: "Explore & Connect",
+      desc: "Discover music, connect with talents, and grow your network.",
+    },
+    {
+      title: "Engage & Grow",
+      desc: "Share, collaborate, and build meaningful connections.",
+    },
+  ];
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    apiService.getUser()
+      .then((res) => {
+        setUsers(res.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching users:", err);
+      });
+  }, []);
   return (
-    <div className="bg-[#0D0D0D] h-full text-white">
+    <div className="bg-[#0D0D0D] h-full text-white pb-24">
       {/* header section */}
       <header className={`fixed top-0 left-0 w-full flex flex-col items-center justify-between z-50 transition-all duration-300 ${scrolled ? 'bg-[#0D0D0D]/60 shadow-md backdrop-blur-md' : 'bg-transparent'}`}>
         <div className={`w-full flex items-center justify-between transition-all duration-300 px-4 ${scrolled ? 'py-3' : 'py-6'}`}>
@@ -415,6 +438,7 @@ function Home() {
         </Swiper>
       </div>
 
+
       {/* benefits section */}
       <div className="max-w-6xl mx-auto px-4 py-20">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
@@ -448,15 +472,110 @@ function Home() {
         </div>
       </div>
 
-      <h1 className="text-3xl mb-5 py-[2000px]">Welcome to Tunefolio</h1>
-      {user ? (
-        <p>Hello, {user.name}!</p>
-      ) : (
-        <>
-          <p className="text-gray-400">You are not logged in.</p>
-          <Link to="/login" className="text-blue-400 underline">Login here</Link>
-        </>
-      )}
+      {/* aboutus section */}
+      <div className='flex bg-[#172022] items-center'>
+        <div className="w-[45%]  p-6">
+          <img src="/assets/possessed-photography-U3sOwViXhkY-unsplash.jpg" alt="About us" className="rounded-[20px]" />
+        </div>
+
+
+        <div className='w-[55%] p-12'>
+          <div className=''>
+            <h2 className="text-3xl md:text-4xl font-bold pb-4">About Us</h2>
+            <div className='line2'></div>
+          </div>
+          <div className="text-xl">
+            <p className="text-lg md:text-xl leading-relaxed text-white/80">
+              Tunefolio is more than just a platform—it's a movement built by and for passionate music creators, professionals, and fans.
+              We believe in authenticity, organic growth, and real connections over clout and numbers.
+            </p>
+
+            <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/80">
+              Whether you're an artist crafting your unique sound, an industry pro looking to connect,
+              or a fan discovering the next big thing—Tunefolio empowers you to showcase, explore, and thrive in a space that values music and meaning.
+            </p>
+
+            <p className="mt-6 text-base text-white/60">
+              Built with heart. Backed by data. Driven by community.
+            </p>
+          </div>
+          <div className="mt-8 grid md:grid-cols-2 gap-6 text-left text-white/90">
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg hover:scale-[1.02] transition">
+              <h3 className="text-xl font-semibold mb-2">🎯 Our Mission</h3>
+              <p>To empower every musician, professional, and listener to connect, grow, and thrive through authentic music experiences.</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg hover:scale-[1.02] transition">
+              <h3 className="text-xl font-semibold mb-2">🌍 Our Vision</h3>
+              <p>To redefine how the world discovers, shares, and supports music—one genuine connection at a time.</p>
+            </div>
+          </div>
+
+          <button className="transision duration-200 hover:text-[#70CCE2] pt-4">See More</button>
+        </div>
+
+      </div>
+
+      {/* How It Works Section */}
+      <div className="max-w-6xl mx-auto px-4 py-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+          How It Works
+        </h2>
+
+        <div className="space-y-10">
+          {howItWorksSteps.map((step, index) => {
+            const ref = useRef(null);
+            const isInView = useInView(ref, { amount: 0.5 });
+
+            return (
+              <motion.div
+                key={index}
+                ref={ref}
+                initial={{ x: 100, opacity: 0 }}
+                animate={isInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg text-white"
+              >
+                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <p className="text-sm">{step.desc}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Footer section */}
+
+      <div className='flex justify-center w-full'>
+        <div className="flex flex-col items-center w-[40%] gap-4">
+          <h2 className="text-xl font-bold tracking-widest">TuneFolio</h2>
+          <p className="text-center px-10">TuneFolio is a music talent showcase website, A way to discover new and emerging artists and support their musical journey.</p>
+          <ul className='w-full flex justify-between font-semibold pt-2'>
+            <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">Home</li>
+            <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">About Us</li>
+            <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">Events</li>
+            <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">Artists</li>
+            <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">Contact</li>
+          </ul>
+          <div className='w-full h-[1px] bg-gradient-to-r from-transparent via-[#70CCE2] to-transparent'></div>
+          <ul className="flex gap-8 pt-2">
+            <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+            <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+            <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+            <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+          </ul>
+          <ul className='flex gap-12 font-semibold py-2'>
+            <li className="cursor-pointer">Privacy Policy</li>
+            <li className="cursor-pointer">Terms of Service</li>
+          </ul>
+          <div className='flex gap-8'>
+            <button className='button-container flex items-center gap-2 border-1 w-[180px] py-2 px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoGooglePlaystore className='text-[#70CCE2] text-2xl' /></div><p className="text-start"> Get it on <br /><span>Playstore</span></p></button>
+            <button className='button-container flex items-center gap-2 border-1 w-[180px] py-2 px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoAppleAppstore className='text-[#70CCE2] text-2xl' /></div><p className="text-start">Download it on <br /><span>Appstore</span></p></button>
+          </div>
+          <div className='w-full h-[1px] bg-gradient-to-r from-transparent via-[#70CCE2] to-transparent'></div>
+          <p className='copyrights text-white/60'>© 2024 TuneFolio - All Rights Reserved</p>
+        </div>
+
+      </div>
     </div>
   );
 }
