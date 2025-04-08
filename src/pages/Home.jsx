@@ -178,17 +178,6 @@ function Home() {
     },
   ];
 
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    apiService.getUser()
-      .then((res) => {
-        setUsers(res.data);
-      })
-      .catch((err) => {
-        console.error("Error fetching users:", err);
-      });
-  }, []);
   return (
     <div className="bg-[#0D0D0D] h-full text-white pb-24">
       {/* header section */}
