@@ -23,6 +23,11 @@ import { HiRocketLaunch } from "react-icons/hi2";
 import { BiBarChartAlt2 } from "react-icons/bi";
 import { GiBrain } from "react-icons/gi";
 import { IoLogoGooglePlaystore, IoLogoAppleAppstore } from "react-icons/io5";
+import FeaturedArtists from "../components/FeaturedArtists";
+import UpcomingSessions from "../components/UpcomingSessions";
+import { PiPlayCircleBold } from "react-icons/pi";
+import BrowseByType from "../components/BrowseByType";
+import TestimonialCarousel from "../components/TestimonialCarousel";
 
 
 import SplitHeading from "../components/SplitHeading";
@@ -532,9 +537,40 @@ function Home() {
         </div>
       </div>
 
-      {/* Footer section */}
+      {/* FeaturedArtists section */}
+      <FeaturedArtists />
 
-      <div className='flex justify-center w-full'>
+      {/* upcoming session section */}
+      <UpcomingSessions />
+
+      {/* BrowseByType section */}
+      <BrowseByType />
+
+      {/* testimonial section */}
+      <TestimonialCarousel />
+
+
+      {/* our gallery section */}
+      <div className='relative h-[600px] overflow-hidden'>
+        <img src="/assets/hans-vivek-By96LAr-34o-unsplash.jpg" alt="" className="object-contain" />
+        <div className='absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-4'>
+          <div className='gallery-heading'>
+            <div className='gallery-line'></div>
+            <h2 className="text-4xl font-bold">Our Gallery</h2>
+            <div className='gallery-line'></div>
+          </div>
+          <div className='text-6xl text-[#70CCE2] cursor-pointer'>
+            <PiPlayCircleBold />
+          </div>
+          <div>
+            <p className="text-2xl">"Embark on a journey through our dynamic gallery and discover the diverse musical talents shaping the future."</p>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Footer section */}
+      <div className='flex justify-center w-full py-12'>
         <div className="flex flex-col items-center w-[40%] gap-4">
           <h2 className="text-xl font-bold tracking-widest">TuneFolio</h2>
           <p className="text-center px-10">TuneFolio is a music talent showcase website, A way to discover new and emerging artists and support their musical journey.</p>
@@ -565,6 +601,7 @@ function Home() {
         </div>
 
       </div>
+
     </div>
   );
 }
