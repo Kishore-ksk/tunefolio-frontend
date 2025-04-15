@@ -22,6 +22,7 @@ import { FaHeart } from "react-icons/fa";
 import { HiRocketLaunch } from "react-icons/hi2";
 import { BiBarChartAlt2 } from "react-icons/bi";
 import { GiBrain } from "react-icons/gi";
+import { CgMenuRight } from "react-icons/cg";
 import { IoLogoGooglePlaystore, IoLogoAppleAppstore } from "react-icons/io5";
 import FeaturedArtists from "../components/FeaturedArtists";
 import UpcomingSessions from "../components/UpcomingSessions";
@@ -36,6 +37,7 @@ function Home() {
   const { user, setUser } = useAuth(); // fetchUser not needed here
   const navigate = useNavigate();
   const location = useLocation(); // ✅
+  const [isOpen, setIsOpen] = useState(false);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
@@ -188,30 +190,32 @@ function Home() {
       {/* header section */}
       <header className={`fixed top-0 left-0 w-full flex flex-col items-center justify-between z-50 transition-all duration-300 ${scrolled ? 'bg-[#0D0D0D]/60 shadow-md backdrop-blur-md' : 'bg-transparent'}`}>
         <div className={`w-full flex items-center justify-between transition-all duration-300 px-4 ${scrolled ? 'py-3' : 'py-6'}`}>
-          <div onClick={() => navigate(`/`)} className="flex items-center gap-12 cursor-pointer">
+          <div onClick={() => navigate(`/`)} className="flex items-center md:gap-12 cursor-pointer">
             <div className="flex items-center gap-2">
               <img src="/assets/tunefolio.svg" title="Tunefolio-Logo" alt="Tunefolio Logo"
                 className="w-10 cursor-pointer lg:w-[2vw] transition-transform duration-500 hover:rotate-180" />
-              <p className="text-[1.5vw] cursor-pointer font-bold hidden lg:block tracking-[2px]">TuneFolio</p>
+              <p className="md:text-[1.5vw] cursor-pointer font-bold tracking-[2px]">TuneFolio</p>
             </div>
-            <Link to="/premium"><p>premium <span className="text-[#70CCE2] font-extrabold">+</span></p></Link>
+            <Link className="hidden md:block" to="/premium"><p>premium <span className="text-[#70CCE2] font-extrabold">+</span></p></Link>
           </div>
-
-          <div className="flex items-center">
-            <div className='flex items-center relative w-[700px]'>
+          <button className='block md:hidden cursor-pointer'>
+            <img src="/assets/search.svg" alt="" className='' />
+          </button>
+          <div className="items-center hidden md:flex">
+            <div className='flex items-center relative md:w-[260px] lg:w-[500px] xl:w-[700px]'>
               <button className='cursor-pointer'>
                 <img src="/assets/search.svg" alt="" className='-translate-y-1/2 absolute left-4 top-1/2 transform' />
               </button>
-              <input type="text" placeholder='Search...' className='bg-[#232B2D] border-[#585E5F] border-[1.5px] p-3 rounded-[10px] w-full focus:outline-none hidden md:block pl-12 pr-4' />
+              <input type="text" placeholder='Search...' className='bg-[#232B2D] border-[#585E5F] border-[1.5px] p-3 rounded-[10px] w-full focus:outline-none  pl-12 pr-4' />
             </div>
           </div>
 
-          <div className="flex items-center gap-12">
+          <div className="flex items-center gap-0 lg:gap-6 xl:gap-12">
             {user ? (
               <div className='md:w-20 relative' ref={dropdownRef}>
-                <button onClick={() => setDropdownOpen(!dropdownOpen)} className='bg-[#232B2D] border-[#585E5F] border-[1.5px] rounded-full cursor-pointer md:p-2'>
+                <button onClick={() => setDropdownOpen(!dropdownOpen)} className='bg-[#232B2D] border-[#585E5F] border-[1.5px] rounded-full cursor-pointer p-1 md:p-2'>
                   <div className='flex gap-2'>
-                    <img src={profileImage || "/assets/material-symbols-light--account-circle.svg"} alt="Profile" className='h-8 rounded-full w-8' />
+                    <img src={profileImage || "/assets/material-symbols-light--account-circle.svg"} alt="Profile" className='h-6 md:h-8 rounded-full w-6 md:w-8' />
                   </div>
                 </button>
 
@@ -249,9 +253,36 @@ function Home() {
               </div>
             )}
 
-            <Link to="/dashboard/uploads" className="border-2 rounded-[6px] px-8 py-2 hover:border-[#70CCE2] hover:text-[#70CCE2]">Upload</Link>
+            <Link to="/dashboard/uploads" className="hidden md:block border-2 rounded-[6px] px-8 py-2 hover:border-[#70CCE2] hover:text-[#70CCE2]">Upload</Link>
+          </div>
+          {/* Mobile Sidebar - Collapsible Menu */}
+          <div className="w-6 block md:hidden relative">
+            <button onClick={() => setIsOpen(!isOpen)} className={`text-white text-3xl rounded transition-transform duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`}>
+              {isOpen ? "✕" : <CgMenuRight />}
+            </button>
           </div>
         </div>
+        {isOpen && (
+          <div className="bg-opacity-50 bg-[#0D0D0D]/60 shadow-md backdrop-blur-md absolute md:hidden right-0 h-screen top-20 p-5" onClick={() => setIsOpen(false)}>
+            <div className="flex mb-5 gap-8">
+              <Link to="/dashboard/uploads" className="border-2 rounded-[6px] px-4  hover:border-[#70CCE2] hover:text-[#70CCE2]">Upload</Link>
+              <Link to="/premium"><p>premium <span className="text-[#70CCE2] font-extrabold">+</span></p></Link>
+
+            </div>
+
+            <div>
+              <nav className="flex flex-col justify-around gap-6 text-white text-base font-medium">
+                <a href="#features" className="hover:text-[#70CCE2] transition">Features</a>
+                <a href="#artists" className="hover:text-[#70CCE2] transition">For Artists</a>
+                <a href="#industry" className="hover:text-[#70CCE2] transition">For Professionals</a>
+                <a href="#industry" className="hover:text-[#70CCE2] transition">Upcoming</a>
+                <a href="#industry" className="hover:text-[#70CCE2] transition">Testimonials</a>
+                <a href="#industry" className="hover:text-[#70CCE2] transition">Our Gallery</a>
+                <a href="#contact" className="hover:text-[#70CCE2] transition">Contact</a>
+              </nav>
+            </div>
+          </div>
+        )}
         <div className={`w-full px-4 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
           <nav className="hidden md:flex justify-around text-white text-base font-medium">
             <a href="#features" className="hover:text-[#70CCE2] transition">Features</a>
@@ -263,6 +294,8 @@ function Home() {
             <a href="#contact" className="hover:text-[#70CCE2] transition">Contact</a>
           </nav>
         </div>
+
+
       </header>
 
       {/* banner section */}
@@ -285,10 +318,10 @@ function Home() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-4">
+              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-8">
                 <div className="flex flex-col items-center justify-center text-center">
-                  <h2 className="text-2xl md:text-4xl font-bold mb-2">Where Music Becomes a Mirror</h2>
-                  <p className="text-sm md:text-lg mb-6">Tunefolio is your digital stage — where sound meets soul, and stories find their rhythm.</p>
+                  <h2 className="text-xl md:text-4xl font-bold mb-2">Where Music Becomes a Mirror</h2>
+                  <p className="text-xs md:text-lg mb-6">Tunefolio is your digital stage — where sound meets soul, and stories find their rhythm.</p>
                   <a
                     href="#"
                     className="bg-white text-black px-6 py-2 rounded-full text-sm md:text-base font-semibold hover:bg-black hover:text-white transition duration-300"
@@ -296,13 +329,13 @@ function Home() {
                     Dive-In
                   </a>
                 </div>
-                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-sm '>
-                  <p>Built for artists. Loved by fans. Powered by passion.</p>
-                  <ul className="flex gap-8">
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
+                  <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
+                  <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
@@ -320,10 +353,10 @@ function Home() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-4">
+              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-8">
                 <div className="flex flex-col items-center justify-center text-center">
-                  <h2 className="text-2xl md:text-4xl font-bold mb-2">Turn Up the Volume on Your Vision</h2>
-                  <p className="text-sm md:text-lg mb-6">Drop your beats, build your tribe, and let your sound speak louder than words.</p>
+                  <h2 className="text-xl md:text-4xl font-bold mb-2">Turn Up the Volume on Your Vision</h2>
+                  <p className="text-xs md:text-lg mb-6">Drop your beats, build your tribe, and let your sound speak louder than words.</p>
                   <a
                     href="#"
                     className="bg-white text-black px-6 py-2 rounded-full text-sm md:text-base font-semibold hover:bg-black hover:text-white transition duration-300"
@@ -331,13 +364,13 @@ function Home() {
                     Dive-In
                   </a>
                 </div>
-                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-sm '>
-                  <p>Built for artists. Loved by fans. Powered by passion.</p>
-                  <ul className="flex gap-8">
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
+                  <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
+                  <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
@@ -355,10 +388,10 @@ function Home() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-4">
+              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-8">
                 <div className="flex flex-col items-center justify-center text-center">
-                  <h2 className="text-2xl md:text-4xl font-bold mb-2">Scout the Sound of Tomorrow</h2>
-                  <p className="text-sm md:text-lg mb-6">From fresh beats to future icons — explore the talent that's reshaping the music scene.</p>
+                  <h2 className="text-xl md:text-4xl font-bold mb-2">Scout the Sound of Tomorrow</h2>
+                  <p className="text-xs md:text-lg mb-6">From fresh beats to future icons — explore the talent that's reshaping the music scene.</p>
 
                   <a
                     href="#"
@@ -367,13 +400,13 @@ function Home() {
                     Dive-In
                   </a>
                 </div>
-                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-sm '>
-                  <p>Built for artists. Loved by fans. Powered by passion.</p>
-                  <ul className="flex gap-8">
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
+                  <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
+                  <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
@@ -391,10 +424,10 @@ function Home() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-4">
+              <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-8">
                 <div className="flex flex-col items-center justify-center text-center">
-                  <h2 className="text-2xl md:text-4xl font-bold mb-2">Follow the Music, Feel the Magic</h2>
-                  <p className="text-sm md:text-lg mb-6">Get closer to the artists you adore, discover raw gems, and vibe with every note.</p>
+                  <h2 className="text-xl md:text-4xl font-bold mb-2">Follow the Music, Feel the Magic</h2>
+                  <p className="text-xs md:text-lg mb-6">Get closer to the artists you adore, discover raw gems, and vibe with every note.</p>
                   {/* <motion.div {...fadeUp}>
                     <SplitHeading
                       lines={["Listen. Feel.", "Follow the Vibe."]}
@@ -415,13 +448,13 @@ function Home() {
                     Dive-In
                   </a>
                 </div>
-                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-sm '>
-                  <p>Built for artists. Loved by fans. Powered by passion.</p>
-                  <ul className="flex gap-8">
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
+                  <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
+                  <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
@@ -435,7 +468,7 @@ function Home() {
 
       {/* benefits section */}
       <div className="max-w-6xl mx-auto px-4 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+        <h2 className="text-2xl md:text-4xl font-bold text-center text-white mb-12">
           For Artists. For Pros. For Fans.
         </h2>
 
@@ -467,29 +500,29 @@ function Home() {
       </div>
 
       {/* aboutus section */}
-      <div className='flex bg-[#172022] items-center'>
-        <div className="w-[45%]  p-6">
+      <div className='flex flex-col lg:flex-row bg-[#172022] items-center'>
+        <div className="w-full md:w-[45%]  p-6">
           <img src="/assets/possessed-photography-U3sOwViXhkY-unsplash.jpg" alt="About us" className="rounded-[20px]" />
         </div>
 
 
-        <div className='w-[55%] p-12'>
+        <div className='w-full lg:w-[55%] p-12'>
           <div className=''>
-            <h2 className="text-3xl md:text-4xl font-bold pb-4">About Us</h2>
+            <h2 className="text-2xl md:text-4xl font-bold pb-4">About Us</h2>
             <div className='line2'></div>
           </div>
-          <div className="text-xl">
-            <p className="text-lg md:text-xl leading-relaxed text-white/80">
+          <div className="">
+            <p className="text-sm md:text-xl leading-relaxed text-white/80">
               Tunefolio is more than just a platform—it's a movement built by and for passionate music creators, professionals, and fans.
               We believe in authenticity, organic growth, and real connections over clout and numbers.
             </p>
 
-            <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/80">
+            <p className="mt-6 text-sm md:text-xl leading-relaxed text-white/80">
               Whether you're an artist crafting your unique sound, an industry pro looking to connect,
               or a fan discovering the next big thing—Tunefolio empowers you to showcase, explore, and thrive in a space that values music and meaning.
             </p>
 
-            <p className="mt-6 text-base text-white/60">
+            <p className="mt-6 text-xs md:text-base text-white/60">
               Built with heart. Backed by data. Driven by community.
             </p>
           </div>
@@ -510,8 +543,8 @@ function Home() {
       </div>
 
       {/* How It Works Section */}
-      <div className="max-w-6xl mx-auto px-4 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+      <div className="md:max-w-6xl mx-auto px-4 py-20 overflow-hidden">
+        <h2 className="text-2xl md:text-4xl font-bold text-center text-white mb-12">
           How It Works
         </h2>
 
@@ -592,7 +625,7 @@ function Home() {
             <li className="cursor-pointer">Privacy Policy</li>
             <li className="cursor-pointer">Terms of Service</li>
           </ul>
-          <div className='flex gap-8'>
+          <div className='flex md:gap-8'>
             <button className='button-container flex items-center gap-2 border-1 w-[180px] py-2 px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoGooglePlaystore className='text-[#70CCE2] text-2xl' /></div><p className="text-start"> Get it on <br /><span>Playstore</span></p></button>
             <button className='button-container flex items-center gap-2 border-1 w-[180px] py-2 px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoAppleAppstore className='text-[#70CCE2] text-2xl' /></div><p className="text-start">Download it on <br /><span>Appstore</span></p></button>
           </div>

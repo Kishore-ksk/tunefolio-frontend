@@ -92,17 +92,17 @@ const FeaturedArtists = () => {
 
 
   return (
-    <div className="bg-black flex flex-col items-center w-full text-white px-6 md:px-32 py-16">
+    <div className="bg-black flex flex-col items-center w-full text-white px-6 lg:px-32 py-16">
       <div className="flex w-full items-center justify-between mb-6">
-        <h2 className="text-3xl font-bold">Featured Artists</h2>
+        <h2 className="text-2xl md:text-3xl font-bold">Featured Artists</h2>
         <button className="text-[#70CCE2] flex items-center gap-1 text-sm">
           View All <ChevronRight size={18} />
         </button>
       </div>
 
-      <p className="text-gray-300 text-xl w-full mb-10">
+      <p className="text-gray-300 text-sm md:text-xl w-full mb-10">
         "Welcome to our spotlight section, where we shine a light on some of the most talented artists in the industry today."
-        <br />
+        <br /><br />
         Get ready to immerse yourself in a world of captivating melodies, soul-stirring lyrics, and electrifying performances as we present our handpicked selection of featured artists.
       </p>
 
@@ -116,26 +116,36 @@ const FeaturedArtists = () => {
       </div>
 
       {/* Artist Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mx-auto">
+      <div className="grid grid-cols-1 grid-rows-1 xl:grid-cols-2 gap-6 w-full mx-auto">
         {currentCards.map((artist, index) => (
           <div
             key={index}
-            className="bg-[#172022] overflow-hidden p-2 w-[300px] md:w-full h-80 flex"
+            className="bg-[#172022] overflow-hidden p-2  w-full h-96 sm:h-80 flex flex-col sm:flex-row"
           >
             <img
               src={artist.image}
               alt={artist.name}
-              className="w-[200px] object-cover border border-[#5b5b5b]"
+              className="w-48 mx-auto h-40 sm:h-full sm:w-[200px] object-cover object-center border border-[#5b5b5b]"
             />
-            <div className="flex flex-col justify-between p-8">
-              <div>
-                <h3 className="text-xl font-semibold">{artist.name}</h3>
-                <p className="text-[#70CCE2] text-sm mb-2">{artist.role}</p>
-                <p className="text-sm text-gray-300 mb-4">{artist.description}</p>
+            <div className="flex flex-col justify-between p-2 sm:p-8">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="md:text-xl font-semibold">{artist.name}</h3>
+                  <p className="text-[#70CCE2] text-xs md:text-sm mb-2">{artist.role}</p>
+                  <p className="hidden sm:block text-sm text-gray-300 mb-4">{artist.description}</p>
+                </div>
+                <div className="flex sm:hidden gap-4">
+                  <button className="cursor-pointer px-2 py-1 text-black bg-[#70CCE2] text-xs font-semibold">
+                    Follow
+                  </button>
+                  <button className="cursor-pointer text-xs font-medium">
+                    View Profile
+                  </button>
+                </div>
               </div>
+              <div className="flex sm:hidden"><p className="text-sm text-gray-300 mb-4">{artist.description}</p></div>
 
-
-              <div className="flex gap-4 mb-4">
+              <div className="hidden sm:flex gap-4 mb-4">
                 <button className="bg-[#70CCE2] cursor-pointer text-black px-4 py-1 rounded-[4px] text-sm font-semibold">
                   Follow
                 </button>

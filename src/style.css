@@ -56,13 +56,36 @@
 
 
 @media screen and (max-width: 360px) {
-  
+  .swiper-button-prev,
+.swiper-button-next {
+  color: #70CCE2;
+  scale: 0.4;
+  transition: color 0.3s ease;
+}
 }
 
 @media screen and (max-width: 414px) {
-  
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #70CCE2;
+    scale: 0.4;
+    transition: color 0.3s ease;
+  }
 }
 
 @media screen and (max-width: 439px) {
-  /* Your styles here */
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #70CCE2;
+    scale: 0.4;
+    transition: color 0.3s ease;
+  }
+}
+@media screen and (max-width: 639px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #70CCE2;
+    scale: 0.4;
+    transition: color 0.3s ease;
+  }
 }
