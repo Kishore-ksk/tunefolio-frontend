@@ -584,30 +584,30 @@ function Home() {
 
 
       {/* our gallery section */}
-      <div className='relative h-[600px] overflow-hidden'>
+      <div className='relative md:h-[600px] overflow-hidden bg-[#0D0D0D]'>
         <img src="/assets/hans-vivek-By96LAr-34o-unsplash.jpg" alt="" className="object-contain" />
-        <div className='absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-4'>
+        <div className='absolute inset-0 bg-[#0D0D0D]/50 flex flex-col items-center justify-center gap-4'>
           <div className='gallery-heading'>
             <div className='gallery-line'></div>
-            <h2 className="text-4xl font-bold">Our Gallery</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">Our Gallery</h2>
             <div className='gallery-line'></div>
           </div>
-          <div className='text-6xl text-[#70CCE2] cursor-pointer'>
+          <div className='text-4xl md:text-6xl text-[#70CCE2] cursor-pointer'>
             <PiPlayCircleBold />
           </div>
           <div>
-            <p className="text-2xl">"Embark on a journey through our dynamic gallery and discover the diverse musical talents shaping the future."</p>
+            <p className="text-sm md:text-2xl text-center">"Embark on a journey through our dynamic gallery and discover the diverse musical talents shaping the future."</p>
           </div>
         </div>
 
       </div>
 
       {/* Footer section */}
-      <div className='flex justify-center w-full py-12'>
-        <div className="flex flex-col items-center w-[40%] gap-4">
+      <div className='flex justify-center w-full py-12 px-8 sm:px-0'>
+        <div className="flex flex-col sm:items-center w-full md:w-[60%] xl:w-[40%] gap-4">
           <h2 className="text-xl font-bold tracking-widest">TuneFolio</h2>
-          <p className="text-center px-10">TuneFolio is a music talent showcase website, A way to discover new and emerging artists and support their musical journey.</p>
-          <ul className='w-full flex justify-between font-semibold pt-2'>
+          <p className="text-sm sm:text-base sm:text-center sm:px-10">TuneFolio is a music talent showcase website, A way to discover new and emerging artists and support their musical journey.</p>
+          <ul className='w-full flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between font-semibold pt-2'>
             <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">Home</li>
             <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">About Us</li>
             <li className="hover:text-[#70CCE2] cursor-pointer transition-all duration-200 ease-in">Events</li>
@@ -621,13 +621,13 @@ function Home() {
             <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
             <li className="cursor-pointer text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
           </ul>
-          <ul className='flex gap-12 font-semibold py-2'>
+          <ul className='flex flex-col sm:flex-row gap-3 sm:gap-12 font-semibold py-2'>
             <li className="cursor-pointer">Privacy Policy</li>
             <li className="cursor-pointer">Terms of Service</li>
           </ul>
-          <div className='flex md:gap-8'>
-            <button className='button-container flex items-center gap-2 border-1 w-[180px] py-2 px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoGooglePlaystore className='text-[#70CCE2] text-2xl' /></div><p className="text-start"> Get it on <br /><span>Playstore</span></p></button>
-            <button className='button-container flex items-center gap-2 border-1 w-[180px] py-2 px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoAppleAppstore className='text-[#70CCE2] text-2xl' /></div><p className="text-start">Download it on <br /><span>Appstore</span></p></button>
+          <div className='flex gap-4 md:gap-8'>
+            <button className='button-container flex items-center gap-2 border-1 w-[140px] sm:w-[200px] py-2 px-3 sm:px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoGooglePlaystore className='text-[#70CCE2] text-2xl' /></div><p className="text-start text-xs sm:text-base"> Get it on <br /><span>Playstore</span></p></button>
+            <button className='button-container flex items-center gap-2 border-1 w-[140px] sm:w-[200px] py-2 px-3 sm:px-6 rounded-[10px] text-sm cursor-pointer transition duration-200 ease-in hover:border-[#70CCE2]'><div><IoLogoAppleAppstore className='text-[#70CCE2] text-2xl' /></div><p className="text-start text-xs sm:text-base">Download it on <br /><span>Appstore</span></p></button>
           </div>
           <div className='w-full h-[1px] bg-gradient-to-r from-transparent via-[#70CCE2] to-transparent'></div>
           <p className='copyrights text-white/60'>© 2024 TuneFolio - All Rights Reserved</p>

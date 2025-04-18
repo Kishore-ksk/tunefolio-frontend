@@ -92,7 +92,7 @@ const FeaturedArtists = () => {
 
 
   return (
-    <div className="bg-black flex flex-col items-center w-full text-white px-6 lg:px-32 py-16">
+    <div className="flex flex-col items-center w-full text-white px-6 lg:px-32 py-16">
       <div className="flex w-full items-center justify-between mb-6">
         <h2 className="text-2xl md:text-3xl font-bold">Featured Artists</h2>
         <button className="text-[#70CCE2] flex items-center gap-1 text-sm">

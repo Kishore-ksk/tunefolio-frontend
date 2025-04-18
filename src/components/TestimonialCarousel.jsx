@@ -51,9 +51,9 @@ const TestimonialCarousel = () => {
 
   return (
     <div className="py-24 bg-[#0D0D0D] text-white overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What People Are Saying</h2>
+      <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">What People Are Saying</h2>
       {/* Arrows */}
-      <div className='flex justify-center gap-80'>
+      <div className='flex justify-center gap-64'>
         <button
           onClick={prevCard}
           className=" bg-[#1a1a1a] hover:bg-[#70CCE2] hover:text-black p-2 rounded-full"
@@ -78,7 +78,7 @@ const TestimonialCarousel = () => {
           const rightIndex = (activeIndex + 1) % testimonials.length;
 
           if (i === activeIndex) {
-            transformStyle = "translate-x-0 scale-100 w-[500px] bg-[#70CCE2] text-black opacity-100 z-30";
+            transformStyle = "translate-x-0 scale-100 w-[300px] sm:w-[500px] top-6 bg-[#70CCE2] text-black opacity-100 z-30";
           } else if (i === rightIndex) {
             transformStyle = "translate-x-[120%] scale-90 w-[500px] opacity-40 hover:opacity-70 z-10";
           } else if (i === leftIndex) {

@@ -42,7 +42,7 @@ const musicTypes = [
 const BrowseByType = () => {
   return (
     <section className="bg-[#0D0D0D] text-white py-20 px-6 md:px-16">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+      <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
         Browse by Type
       </h2>
 
@@ -50,22 +50,21 @@ const BrowseByType = () => {
         {musicTypes.map((type, index) => (
           <div
             key={index}
-            className="relative group min-w-[230px] shadow-lg overflow-hidden"
+            className="relative group min-w-[180px] md:min-w-[230px] shadow-lg overflow-hidden"
           >
             <img
               src={type.image}
               alt={type.title}
               className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-
             <div
-              className="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300"
+              className="absolute inset-0 flex flex-col justify-center items-center opacity-100 xl:opacity-0 group-hover:opacity-100 transition duration-300"
               style={{
                 background: `linear-gradient(to bottom, ${type.color}10, ${type.color}CC)`,
               }}
             >
               <h3 className="text-xl md:text-2xl font-bold mb-2">{type.title}</h3>
-              <button className="px-4 py-2 rounded-[4px] font-medium border-[1.5px] border-white hover:bg-white hover:text-black transition">
+              <button className="px-2 md:px-4 py-1 md:py-2 rounded-[4px] font-medium border-[1.5px] border-white hover:bg-white hover:text-black transition">
                 Explore
               </button>
             </div>
