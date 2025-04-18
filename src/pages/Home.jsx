@@ -193,8 +193,8 @@ function Home() {
           <div onClick={() => navigate(`/`)} className="flex items-center md:gap-12 cursor-pointer">
             <div className="flex items-center gap-2">
               <img src="/assets/tunefolio.svg" title="Tunefolio-Logo" alt="Tunefolio Logo"
-                className="w-10 cursor-pointer lg:w-[2vw] transition-transform duration-500 hover:rotate-180" />
-              <p className="md:text-[1.5vw] cursor-pointer font-bold tracking-[2px]">TuneFolio</p>
+                className="w-8 md:w-10 cursor-pointer lg:w-[2vw] transition-transform duration-500 hover:rotate-180" />
+              <p className="text-base md:text-[1.5vw] hidden sm:block cursor-pointer font-bold tracking-[2px]">TuneFolio</p>
             </div>
             <Link className="hidden md:block" to="/premium"><p>premium <span className="text-[#70CCE2] font-extrabold">+</span></p></Link>
           </div>
@@ -202,7 +202,7 @@ function Home() {
             <img src="/assets/search.svg" alt="" className='' />
           </button>
           <div className="items-center hidden md:flex">
-            <div className='flex items-center relative md:w-[260px] lg:w-[500px] xl:w-[700px]'>
+            <div className='flex items-center relative md:w-[160px] lg:w-[420px] xl:w-[640px]'>
               <button className='cursor-pointer'>
                 <img src="/assets/search.svg" alt="" className='-translate-y-1/2 absolute left-4 top-1/2 transform' />
               </button>
@@ -246,7 +246,7 @@ function Home() {
                 )}
               </div>
             ) : (
-              <div className="flex gap-4 items-center">
+              <div className="flex px-4 lg:px-0 gap-2 text-xs md:text-base  items-center">
                 <Link to="/signup" className="hover:text-[#70CCE2] transition">Create Account</Link>
                 <span className="w-[2px] h-[20px] bg-[#70CCE2]"></span>
                 <Link to="/login" className="hover:text-[#70CCE2] transition">Log-In</Link>
@@ -332,10 +332,10 @@ function Home() {
                 <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
                   <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
                   <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
@@ -367,10 +367,10 @@ function Home() {
                 <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
                   <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
                   <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
@@ -403,10 +403,10 @@ function Home() {
                 <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
                   <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
                   <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
@@ -451,10 +451,10 @@ function Home() {
                 <div className='absolute bottom-6 left-0 w-full px-6 md:px-16 flex flex-row justify-between items-end md:items-center gap-4 text-white text-sm mb-4 md:mb-0'>
                   <p className="text-xs md:text-base">Built for artists. Loved by fans. Powered by passion.</p>
                   <ul className="flex gap-2 md:gap-8 flex-col md:flex-row">
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
-                    <li className="cursor-pointer text-sm md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiLinkedinBoxFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><RiInstagramFill /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaSquareXTwitter /></li>
+                    <li className="cursor-pointer text-xl md:text-2xl transition-all duration-200 ease-in hover:text-[#70CCE2] hover:scale-125"><FaYoutube /></li>
                   </ul>
 
                 </div>
