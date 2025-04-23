@@ -30,7 +30,7 @@ const upcomingSessions = [
 
 const UpcomingSessions = () => {
   return (
-    <div className="flex flex-col items-center  py-16 bg-[#172022] gap-6 sm:px-12 lg:px-32">
+    <div className="flex flex-col items-center  py-16 bg-[#172022] px-6 sm:px-12 lg:px-32">
       <div className="flex w-full items-center justify-between mb-6">
         <h2 className="text-2xl md:text-3xl font-bold">Upcoming Session</h2>
         <button className="text-[#70CCE2] flex items-center gap-1 text-sm">

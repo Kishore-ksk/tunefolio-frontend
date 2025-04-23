@@ -65,6 +65,28 @@ body::-webkit-scrollbar {
   transform: rotateX(180deg);
 }
 
+/* automatic scroll */
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.scroll-content {
+  display: flex;
+  animation: infiniteScroll linear infinite;
+  animation-duration: 30s; /* adjust speed */
+}
+
+
 
 @media screen and (max-width: 360px) {
   .swiper-button-prev,

@@ -156,15 +156,15 @@ const FeaturedArtists = () => {
 
               <div className="flex justify-between text-xs text-gray-400">
                 <div>
-                  <p className="text-white text-xl font-semibold">{artist.followers}</p>
+                  <p className="text-white md:text-xl font-semibold">{artist.followers}</p>
                   <p className="font-semibold text-[#70CCE2]">Followers</p>
                 </div>
                 <div>
-                  <p className="text-white text-xl font-semibold">{artist.plays}</p>
+                  <p className="text-white md:text-xl font-semibold">{artist.plays}</p>
                   <p className="font-semibold text-[#70CCE2]">Plays</p>
                 </div>
                 <div>
-                  <p className="text-white text-xl font-semibold">{artist.likes}</p>
+                  <p className="text-white md:text-xl font-semibold">{artist.likes}</p>
                   <p className="font-semibold text-[#70CCE2]">Likes</p>
                 </div>
               </div>
