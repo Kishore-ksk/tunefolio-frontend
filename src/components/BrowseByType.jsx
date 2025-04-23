@@ -46,7 +46,7 @@ const BrowseByType = () => {
         Browse by Type
       </h2>
 
-      <div className="flex justify-start overflow-auto">
+      <div className="flex justify-start overflow-auto ">
         {musicTypes.map((type, index) => (
           <div
             key={index}

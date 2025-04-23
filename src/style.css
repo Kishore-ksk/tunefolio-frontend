@@ -1,3 +1,14 @@
+/* Hide scrollbar for all browsers */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+
 .swiper-button-prev,
 .swiper-button-next {
   color: #70CCE2;
