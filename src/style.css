@@ -1,12 +1,12 @@
 /* Hide scrollbar for all browsers */
-body {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE 10+ and old Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
-body::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
-}
 
 
 .swiper-button-prev,
