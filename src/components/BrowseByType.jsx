@@ -48,7 +48,7 @@ const BrowseByType = () => {
         Browse by Type
       </h2>
 
-      <div className="scroll-container flex justify-start overflow-x-auto cursor-grab" onMouseEnter={() => setIsHovered(true)}
+      <div className="scroll-container flex justify-start overflow-x-auto cursor-grab scrollbar-hide" onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{ overflowX: "auto", cursor: "grab" }}>
         <div
